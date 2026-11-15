@@ -1,7 +1,7 @@
 # CRUD de Livros — Spring Boot, JPA e MySQL
 
 Atividade prática de Projeto de Software e Segurança da Informação (UMC).
-Dupla: _preencher nomes_
+Integrante: Luis Alexandre
 
 ## Como rodar
 
