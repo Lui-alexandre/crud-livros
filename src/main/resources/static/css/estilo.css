@@ -1,0 +1,109 @@
+:root {
+    --papel: #faf8f3;
+    --tinta: #1f2a37;
+    --suave: #5b6675;
+    --linha: #dcd6c8;
+    --destaque: #1e5a4f;
+    --destaque-escuro: #143f37;
+    --perigo: #a4332b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: var(--papel);
+    color: var(--tinta);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.5;
+}
+
+h1 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.pagina { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+.pagina.estreita { max-width: 520px; }
+
+.topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--tinta);
+}
+
+.botao {
+    display: inline-block;
+    padding: .55rem 1.1rem;
+    border: 1px solid var(--destaque);
+    border-radius: 4px;
+    background: var(--destaque);
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+.botao:hover { background: var(--destaque-escuro); }
+.botao-secundario { background: transparent; color: var(--destaque); }
+.botao-secundario:hover { background: #e8efec; }
+
+.aviso {
+    margin: 0 0 1rem;
+    padding: .7rem 1rem;
+    border-left: 4px solid var(--destaque);
+    background: #e8efec;
+}
+
+.busca { display: flex; gap: .5rem; margin-bottom: 1.5rem; }
+.busca input { flex: 1; }
+
+input[type="text"], input[type="number"], input[type="search"] {
+    width: 100%;
+    padding: .55rem .7rem;
+    border: 1px solid var(--linha);
+    border-radius: 4px;
+    background: #fff;
+    color: var(--tinta);
+    font: inherit;
+}
+input:focus-visible, .botao:focus-visible, .link:focus-visible {
+    outline: 3px solid #8fc1b5;
+    outline-offset: 1px;
+}
+
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: .75rem .5rem; text-align: left; border-bottom: 1px solid var(--linha); }
+th { font-size: .85rem; color: var(--suave); font-weight: 600; }
+tbody tr:hover { background: #f1ede2; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.acoes { text-align: right; white-space: nowrap; }
+.acoes form { display: inline; }
+
+.link {
+    padding: 0 .4rem;
+    border: 0;
+    background: none;
+    color: var(--destaque);
+    font: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.link.perigo { color: var(--perigo); }
+
+.vazio { padding: 2rem 0; color: var(--suave); }
+
+.formulario label { display: block; margin: 1.1rem 0 .3rem; font-weight: 600; }
+.erro { display: block; margin-top: .3rem; color: var(--perigo); font-size: .9rem; }
+.botoes { display: flex; align-items: center; gap: 1rem; margin-top: 1.75rem; }
+
+@media (max-width: 560px) {
+    .topo { flex-direction: column; align-items: flex-start; }
+    th:nth-child(2), td:nth-child(2) { display: none; }
+}

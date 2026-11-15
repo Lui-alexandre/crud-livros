@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Livro</title>
+    <link rel="stylesheet" th:href="@{/css/estilo.css}" />
+</head>
+<body>
+<main class="pagina estreita">
+    <header class="topo">
+        <h1 th:text="${livro.id == null} ? 'Novo livro' : 'Editar livro'"></h1>
+    </header>
+
+    <form class="formulario" th:action="@{/livros/salvar}" th:object="${livro}" method="post">
+        <input type="hidden" th:field="*{id}" />
+
+        <label for="titulo">Título</label>
+        <input id="titulo" type="text" th:field="*{titulo}" />
+        <span class="erro" th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></span>
+
+        <label for="autor">Autor</label>
+        <input id="autor" type="text" th:field="*{autor}" />
+        <span class="erro" th:if="${#fields.hasErrors('autor')}" th:errors="*{autor}"></span>
+
+        <label for="ano">Ano de publicação</label>
+        <input id="ano" type="number" th:field="*{ano}" />
+        <span class="erro" th:if="${#fields.hasErrors('ano')}" th:errors="*{ano}"></span>
+
+        <div class="botoes">
+            <button type="submit" class="botao">Salvar</button>
+            <a class="link" th:href="@{/livros}">Cancelar</a>
+        </div>
+    </form>
+</main>
+</body>
+</html>
